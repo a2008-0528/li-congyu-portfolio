@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080d13">
+  <meta name="description" content="星穹突围：原创科幻弹幕射击游戏。驾驶战机、进化武器、击破巨型机械母舰。">
+  <title>星穹突围 NEBULA STRIKE · 星际作战终端</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='%235fe8ce' d='M20 2 36 34 20 27 4 34Z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <a class="brand" href="./" aria-label="星穹突围首页"><span class="brand-mark">◈</span><span>NEBULA<span class="brand-sub">STRIKE / 星穹突围</span></span></a>
+    <div class="workspace"><span class="online-dot"></span> 星际作战终端 <span class="version">V.01</span></div>
+    <div class="nav-label">COMMAND CENTER <span>指挥中心</span></div>
+    <nav aria-label="主导航">
+      <button class="nav-item active" data-page="mission"><span class="nav-icon">⌖</span> 作战任务 <span class="nav-index">01</span></button>
+      <button class="nav-item" data-page="hangar"><span class="nav-icon">◇</span> 战机库 <span class="nav-index">02</span></button>
+      <button class="nav-item" data-page="records"><span class="nav-icon">▤</span> 飞行记录 <span class="nav-index">03</span></button>
+      <button class="nav-item" data-page="guide"><span class="nav-icon">⌘</span> 作战指南 <span class="nav-index">04</span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="signal"><span>▂▄▆█</span> 通讯链路稳定 <i>24 ms</i></div>
+      <button class="nav-item settings-link" data-action="settings"><span class="nav-icon">⚙</span> 终端设置</button>
+      <div class="pilot"><div class="avatar">N</div><div><strong>先驱者 001</strong><small>独立飞行员 · 本地档案</small></div><span class="online-dot"></span></div>
+    </div>
+  </aside>
+  <div class="workspace-main">
+    <header class="topbar"><div class="breadcrumb">指挥中心 <span>/</span> <strong id="page-name">作战任务</strong></div><div class="top-actions"><span class="local-label"><span class="online-dot"></span> SYSTEM ONLINE</span><div class="currency"><span>✧</span><strong id="currency">0</strong><small>科技点</small></div><button class="icon-button" data-action="settings" aria-label="设置">⚙</button></div></header>
+    <main>
+      <div class="page-heading"><div><div class="eyebrow">DEFEND THE LAST FRONTIER</div><h1 id="main-title">准备好，突破边界。</h1><p id="main-subtitle">引擎已就绪。你的下一场传奇，从这里开始。</p></div><span class="sector-tag">SECTOR 07 <span>◈</span></span></div>
+      <section id="mission-page" class="page">
+        <div class="mission-grid">
+          <div class="battle-column">
+            <div class="arena-toolbar"><div><span class="live-dot"></span><strong id="arena-label">战役任务</strong><span class="toolbar-divider">/</span><span id="stage-label">01 · 轨道前哨</span></div><div class="toolbar-right"><button id="audio-toggle" class="mini-button" aria-label="切换声音">♪</button><button id="pause-button" class="mini-button" aria-label="暂停游戏" disabled>Ⅱ</button></div></div>
+            <div class="arena" id="arena">
+              <canvas id="game-canvas" width="540" height="960" aria-label="纵版飞机射击战场"></canvas>
+              <div class="arena-corners" aria-hidden="true"></div>
+              <div id="hud" class="hud hidden"><div class="hud-top"><div><small>ARMOR</small><div class="hp-track"><i id="hp-fill"></i></div><div class="shield-track"><i id="shield-fill"></i></div></div><div class="hud-score"><small>SCORE</small><strong id="score">000000</strong></div></div><div class="hud-meta"><span id="level">LV. 01</span><span id="wave">WAVE 01</span><span id="clock">00:00</span></div><div class="xp-track"><i id="xp-fill"></i></div><div id="boss-hud" class="boss-hud hidden"><div><strong>天穹裁决者</strong><span id="boss-phase">PHASE 01</span></div><div class="boss-track"><i id="boss-fill"></i></div></div></div>
+              <div id="welcome" class="welcome">
+                <div class="mission-top"><span class="micro-label">OPERATION 001</span><div class="difficulty"><i></i><i></i><i class="dim"></i><span>普通威胁</span></div></div>
+                <div class="mission-title"><span class="outline-label">ORBITAL OUTPOST</span><h2>轨道前哨</h2><p>穿越封锁线，夺回最后一道防线。</p></div>
+                <div class="hero-ship-label"><span class="crosshair">+</span><div><strong id="hero-ship-name">隼式 X-01</strong><small>TACTICAL INTERCEPTOR</small></div><span class="ship-status">READY</span></div>
+                <div class="start-panel"><div class="mission-facts"><span><b>03:00</b>航段时长</span><span><b>ROGUELITE</b>随机强化</span><span><b>CLASS S</b>巨型母舰</span></div><button id="start-button" class="launch-button"><span class="launch-icon">↗</span><span>开始任务 <small>LAUNCH MISSION</small></span><span class="launch-arrow">→</span></button><p class="start-tip"><span>W A S D</span> 移动 <i>·</i> 自动开火 <i>·</i> 拖动也可操控</p></div>
+              </div>
+              <div id="announcement" class="announcement hidden" aria-live="polite"></div>
+              <div id="skill-bar" class="skill-bar hidden"><button id="emp-button" class="skill-button"><span class="skill-symbol">⌁</span><span><strong>EMP 脉冲</strong><small id="emp-cd">就绪</small></span><kbd>Q</kbd></button><button id="shield-button" class="skill-button"><span class="skill-symbol">⬡</span><span><strong>相位护盾</strong><small id="shield-cd">就绪</small></span><kbd>E</kbd></button></div>
+              <div id="arena-overlay" class="arena-overlay hidden"></div>
+            </div>
+            <div class="arena-footer"><span><i class="online-dot"></i> <span id="flight-status">等待出击指令</span></span><span>540 × 960 <i>·</i> LIVE CANVAS</span></div>
+          </div>
+          <aside class="intel-column">
+            <section class="panel mode-panel"><div class="panel-heading"><h3>作战模式</h3><span>GAME MODE</span></div><button class="mode-card selected" data-mode="campaign"><span class="mode-icon">⌖</span><span><strong>战役突围</strong><small>循序深入，击破母舰</small></span><i class="radio"></i></button><button class="mode-card" data-mode="endless"><span class="mode-icon">∞</span><span><strong>无尽深空</strong><small>没有终点，只有新纪录</small></span><i class="radio"></i></button><button class="mode-card" data-mode="bossRush"><span class="mode-icon">♜</span><span><strong>母舰挑战</strong><small>直面 Boss，竞速击破</small></span><i class="radio"></i></button></section>
+            <section class="panel ship-panel"><div class="panel-heading"><h3>当前战机</h3><button class="text-button" data-page="hangar">更换 ↗</button></div><div class="ship-preview"><canvas id="ship-preview" width="460" height="210" aria-label="当前战机预览"></canvas><span>INTERCEPTOR / MK.I</span></div><div class="ship-info"><div><h3 id="selected-ship-name">隼式 X-01</h3><span id="selected-ship-type">均衡型截击机</span></div><span class="rarity">STANDARD</span></div><div class="stat-line"><span>火力</span><div><i id="stat-power" style="width:64%"></i></div><b id="stat-dps">50</b></div><div class="stat-line"><span>装甲</span><div><i id="stat-armor" style="width:68%"></i></div><b id="stat-hp">100</b></div><div class="stat-line"><span>机动</span><div><i id="stat-speed" style="width:84%"></i></div><b id="stat-move">420</b></div></section>
+            <section class="panel threat-panel"><div class="panel-heading"><h3>终极威胁</h3><span class="danger-tag">BOSS</span></div><div class="boss-mini"><canvas id="boss-preview" width="460" height="170" aria-label="机械母舰预览"></canvas></div><h3>天穹裁决者</h3><p>拆除双侧炮台，撕开核心防御。<br>三个阶段，一场决胜。</p><div class="threat-footer"><span><i></i> 重型机械母舰</span><span>CLASS S</span></div></section>
+            <div class="best-card"><span>个人最高纪录<small>LOCAL PERSONAL BEST</small></span><strong id="best-score">000,000</strong></div>
+          </aside>
+        </div>
+      </section>
+      <section id="hangar-page" class="page hidden"><div id="ship-cards" class="ship-cards"></div><div class="section-heading"><h2>永久科技升级</h2><p>本地保存，为下一次出击积蓄力量。</p></div><div id="research-cards" class="research-cards"></div></section>
+      <section id="records-page" class="page hidden"><div id="record-summary" class="record-summary"></div><div class="panel records-panel"><div class="panel-heading"><h3>最近飞行记录</h3><span>LAST 10 MISSIONS · LOCAL</span></div><div id="record-list"></div></div></section>
+      <section id="guide-page" class="page hidden"><div class="guide-grid"><article class="panel guide-card"><span class="guide-number">01 / PILOT</span><h2>移动，就是你的战术。</h2><p>使用 WASD 或方向键移动，也可以在战场内按住鼠标拖动。手机单指拖动，战机会跟随手指的相对位移，不会突然跳到指尖。</p><p>武器持续自动开火。机体中央的亮点是核心受击区，侧翼擦过敌弹不受伤。受到伤害后会有短暂保护。</p></article><article class="panel guide-card"><span class="guide-number">02 / EVOLVE</span><h2>每次强化，改变战局。</h2><p>击落敌机后收集金色经验晶体，升级时战斗暂停，从三张卡中选择一项。每局有一次免费刷新。</p><p>分裂弹道 II ＋ 高频供能 III → 光子风暴<br>追踪导弹 III ＋ 磁吸核心 I → 蜂群审判<br>电弧链路 III ＋ 高能弹头 II → 雷霆矩阵</p></article><article class="panel guide-card"><span class="guide-number">03 / ABILITY</span><h2>在危急时刻，创造空间。</h2><p>Q / EMP 脉冲：清除敌弹并造成全屏伤害，冷却 25 秒。固定激光不会被清除。</p><p>E / 相位护盾：获得 2 秒无敌，冷却 20 秒。技能按钮支持多点触控，可边移动边发动。</p><p>Esc 或 P 暂停。切换标签页会自动暂停，返回后点击继续。</p></article><article class="panel guide-card"><span class="guide-number">04 / TARGET</span><h2>先拆炮台，再破核心。</h2><p>战役进行 90 秒出现精英，180 秒后迎战母舰。摧毁双侧炮台能永久减少对应方向的扇形攻击。</p><p>注意激光的红色预警区域；母舰低血量时进入狂暴阶段。胜败均有科技点奖励，前往战机库永久升级。</p><p>母舰挑战使用统一战机与预设流派，不计入永久科技加成。当前版本不恢复中途退出的战斗。</p></article></div></section>
+      <footer class="page-footer"><span>NEBULA STRIKE <i>© 2026</i></span><span>越过星海，向未知进发。 <span class="footer-star">✦</span></span><span>独立作战 · 进度保存在本机</span></footer>
+    </main>
+  </div>
+</div>
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div id="modal-content" class="modal-content"></div></div>
+<div id="toast" class="toast hidden" role="status"></div>
+<script src="engine.js"></script><script src="renderer.js"></script><script src="app.js"></script>
+</body>
+</html>
