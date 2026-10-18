@@ -1,0 +1,65 @@
+[
+  {
+    "id": "sun",
+    "name": "Sun · 太阳",
+    "diameter_km": 1392700,
+    "semimajor_axis_AU": 0,
+    "radius": 8.46
+  },
+  {
+    "id": "mercury",
+    "name": "Mercury · 水星",
+    "diameter_km": 4879,
+    "semimajor_axis_AU": 0.387,
+    "radius": 1.8302085238350905
+  },
+  {
+    "id": "venus",
+    "name": "Venus · 金星",
+    "diameter_km": 12104,
+    "semimajor_axis_AU": 0.723,
+    "radius": 3.016681965361675
+  },
+  {
+    "id": "earth",
+    "name": "Earth · 地球",
+    "diameter_km": 12756,
+    "semimajor_axis_AU": 1,
+    "radius": 3.105
+  },
+  {
+    "id": "mars",
+    "name": "Mars · 火星",
+    "diameter_km": 6792,
+    "semimajor_axis_AU": 1.524,
+    "radius": 2.195418634717804
+  },
+  {
+    "id": "jupiter",
+    "name": "Jupiter · 木星",
+    "diameter_km": 142984,
+    "semimajor_axis_AU": 5.204,
+    "radius": 8.037753463414651
+  },
+  {
+    "id": "saturn",
+    "name": "Saturn · 土星",
+    "diameter_km": 120536,
+    "semimajor_axis_AU": 9.572,
+    "radius": 7.317130730031118
+  },
+  {
+    "id": "uranus",
+    "name": "Uranus · 天王星",
+    "diameter_km": 51118,
+    "semimajor_axis_AU": 19.164,
+    "radius": 4.565014984671129
+  },
+  {
+    "id": "neptune",
+    "name": "Neptune · 海王星",
+    "diameter_km": 49528,
+    "semimajor_axis_AU": 30.181,
+    "radius": 4.486364164732978
+  }
+]
